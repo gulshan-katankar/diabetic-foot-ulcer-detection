@@ -318,7 +318,7 @@ The resulting map represents **spatial feature-space asymmetry**, not a direct p
 ### Phase 3: Final visualisation
 
 <p align="center">
-  <img src="results/phase 3/Result_Healthy_H_0002_L.png" alt="Phase 3: RGB foot image for healthy patient, spatial asymmetry heatmap, and fused overlay" width="950">
+  <img src="results/phase 3 heatmaps/Result_Healthy_H_0002_L.png" alt="Phase 3: RGB foot image for healthy patient, spatial asymmetry heatmap, and fused overlay" width="950">
 </p>
 
 <p align="center"><em>Figure 2. Phase 3 spatial feature-difference heatmap and fused visualisation for healthy patients.</em></p>
@@ -326,7 +326,7 @@ The resulting map represents **spatial feature-space asymmetry**, not a direct p
 ---
 
 <p align="center">
-  <img src="results/phase 3/Result_R2_0053_R.png" alt="Phase 3: RGB foot image for diabetic patient, spatial asymmetry heatmap, and fused overlay" width="950">
+  <img src="results/phase 3 heatmaps/Result_R2_0053_R.png" alt="Phase 3: RGB foot image for diabetic patient, spatial asymmetry heatmap, and fused overlay" width="950">
 </p>
 
 <p align="center"><em>Figure 3. Phase 3 spatial feature-difference heatmap and fused visualisation for diabetic patients.</em></p>
