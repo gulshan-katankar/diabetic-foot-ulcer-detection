@@ -306,10 +306,10 @@ The objective is to visualise where the left and right foot representations diff
 
 The feature-difference map is:
 
-\[
+$$
 D(i,j)=\frac{1}{C}\sum_{c=1}^{C}
-|F_L(c,i,j)-F_R(c,i,j)|
-\]
+\left|F_L(c,i,j)-F_R(c,i,j)\right|
+$$
 
 where \(C\) is the number of feature channels.
 
@@ -317,14 +317,19 @@ The resulting map represents **spatial feature-space asymmetry**, not a direct p
 
 ### Phase 3: Final visualisation
 
-Add your final exported Phase 3 output image to `assets/phase3_asymmetry_heatmap.png`.
-
-<!-- Replace the path below with the filename of your final exported Phase 3 image. -->
 <p align="center">
-  <img src="assets/phase3_asymmetry_heatmap.png" alt="Phase 3: RGB foot image, spatial asymmetry heatmap, and fused overlay" width="950">
+  <img src="results/phase 3/Result_Healthy_H_0002_L.png" alt="Phase 3: RGB foot image for healthy patient, spatial asymmetry heatmap, and fused overlay" width="950">
 </p>
 
-<p align="center"><em>Figure 2. Phase 3 spatial feature-difference heatmap and fused visualisation. Replace this placeholder with the final output.</em></p>
+<p align="center"><em>Figure 2. Phase 3 spatial feature-difference heatmap and fused visualisation for healthy patients.</em></p>
+
+---
+
+<p align="center">
+  <img src="results/phase 3/Result_R2_0053_R.png" alt="Phase 3: RGB foot image for diabetic patient, spatial asymmetry heatmap, and fused overlay" width="950">
+</p>
+
+<p align="center"><em>Figure 3. Phase 3 spatial feature-difference heatmap and fused visualisation for diabetic patients.</em></p>
 
 ---
 
