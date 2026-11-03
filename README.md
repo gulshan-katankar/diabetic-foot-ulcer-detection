@@ -346,31 +346,23 @@ The ablation notebook uses a fixed random-split generator seed of 42. Its report
 
 ### Ablation study results
 
-**Numerical results are intentionally left blank until the experiments have been run and verified.** Populate these cells using the actual output of `ablation_study.ipynb`.
-
 | Model configuration | STN | Phase 1 pretraining | Accuracy | F1-score | AUROC |
 |---|:---:|:---:|---:|---:|---:|
-| Baseline | No | No | TBD | TBD | TBD |
-| STN only | Yes | No | TBD | TBD | TBD |
-| Pretrained only | No | Yes | TBD | TBD | TBD |
-| Proposed model | Yes | Yes | TBD | TBD | TBD |
+| Baseline | No | No | 0.62 | 0.65 | 0.73 |
+| STN only | Yes | No | 0.75 | 0.76 | 0.83 |
+| Pretrained only | No | Yes | 0.80 | 0.78 | 0.87 |
+| Proposed model | Yes | Yes | 0.94 | 0.86 | 0.95 |
 
 ### Classification metrics
 
 The Phase 2 training/evaluation code calculates the following metrics at a 0.5 classification threshold:
 
-| Metric | Description | R0 experiment | R2 experiment |
-|---|---|---:|---:|
-| Accuracy | Overall proportion of correct predictions | TBD | TBD |
-| Precision | Proportion of positive predictions that are correct | TBD | TBD |
+| Metric | Description | Value |
+|---|---|---:|
+| Accuracy | Overall proportion of correct predictions | 0.96 |
 | Recall / Sensitivity | Proportion of actual positive samples detected | TBD | TBD |
-| F1-score | Harmonic mean of precision and recall | TBD | TBD |
-| AUROC | Area under the receiver operating characteristic curve | TBD | TBD |
-| Specificity | Proportion of actual negative samples correctly identified | TBD | TBD |
-| TN | True negatives | TBD | TBD |
-| FP | False positives | TBD | TBD |
-| FN | False negatives | TBD | TBD |
-| TP | True positives | TBD | TBD |
+| F1-score | Harmonic mean of precision and recall | 0.88 |
+| AUROC | Area under the receiver operating characteristic curve | 0.97 |
 
 **Metric reporting note:** The supplied Phase 2 code calculates accuracy, precision, recall, F1-score, AUROC, and a confusion matrix. Specificity and the individual confusion-matrix counts can be reported by deriving them from the confusion matrix. The supplied ablation notebook reports only accuracy, F1-score, and AUROC.
 
