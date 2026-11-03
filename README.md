@@ -222,16 +222,15 @@ The right-foot image is horizontally flipped and passed through an STN. The STN 
 The left and aligned right images are passed through the same ResNet-18 encoder initialised with the Phase 1 pretrained weights.
 
 The final feature maps are globally averaged to obtain feature vectors:
+<p align="center">
+  <strong>Left-foot feature representation:</strong><br>
+  f<sub>L</sub> = GAP(E(x<sub>L</sub>))
+</p>
 
-\[
-f_L = \operatorname{GAP}(E(x_L))
-\]
-
-\[
-f_R = \operatorname{GAP}(E(T(x_R)))
-\]
-
-Here, \(E\) denotes the encoder and \(T\) denotes the flip-and-STN transformation.
+<p align="center">
+  <strong>Right-foot feature representation:</strong><br>
+  f<sub>R</sub> = GAP(E(T(x<sub>R</sub>)))
+</p>
 
 **3. Feature-difference classifier**
 
