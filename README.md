@@ -2,9 +2,9 @@
 
 > **Research code repository** for a thermal-image-based framework that investigates bilateral foot asymmetry for diabetic foot assessment. The project is organised into three phases: masked thermal-image reconstruction, Siamese asymmetry learning, and spatial feature-difference visualisation.
 
-**Publication status:** [The findings were presented in <CICBA 2026>; proceedings decision/publication status: <ACCEPTED>.]  
+**Publication status:** The findings were presented in CICBA 2026  
 **Paper:** [WILL BE UPDATED]  
-**Authors:** [Gulshan Katankar and Aadish Jain, P Saranya]
+**Authors:** [Gulshan Katankar, Aadish Jain, P Saranya]
 
 ---
 
@@ -134,7 +134,7 @@ The encoder weights from the model with the lowest validation loss are saved as 
 
 <!-- Replace the path below with the filename of your final exported reconstruction. -->
 <p align="center">
-  <img src="results/phase1/val_epoch_80.png" alt="Phase 1: original, masked, and reconstructed thermal foot image" width="850">
+  <img src="results/phase 1/val_epoch_80.png" alt="Phase 1: original, masked, and reconstructed thermal foot image" width="850">
 </p>
 
 <p align="center"><em>Figure 1. Phase 1 thermal-image reconstruction. Replace this placeholder with the final reconstructed output.</em></p>
