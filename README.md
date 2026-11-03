@@ -360,56 +360,8 @@ The Phase 2 training/evaluation code calculates the following metrics at a 0.5 c
 | Metric | Description | Value |
 |---|---|---:|
 | Accuracy | Overall proportion of correct predictions | 0.96 |
-| Recall / Sensitivity | Proportion of actual positive samples detected | TBD | TBD |
 | F1-score | Harmonic mean of precision and recall | 0.88 |
 | AUROC | Area under the receiver operating characteristic curve | 0.97 |
-
-**Metric reporting note:** The supplied Phase 2 code calculates accuracy, precision, recall, F1-score, AUROC, and a confusion matrix. Specificity and the individual confusion-matrix counts can be reported by deriving them from the confusion matrix. The supplied ablation notebook reports only accuracy, F1-score, and AUROC.
-
-Do not fill the table with values from different splits or experiments. Report the evaluation protocol and sample counts alongside the metrics.
-
----
-
-## Repository structure
-
-A suggested repository layout is:
-
-```text
-diabetic-foot-thermal-asymmetry/
-│
-├── README.md
-├── LICENSE
-├── CITATION.cff
-├── requirements.txt
-├── .gitignore
-│
-├── notebooks/
-│   ├── model.ipynb
-│   └── ablation_study.ipynb
-│
-├── src/
-│   ├── phase1_pretraining.py
-│   ├── data_preparation.py
-│   ├── phase2_siamese_training.py
-│   └── phase3_heatmap_visualisation.py
-│
-├── assets/
-│   ├── phase1_reconstruction.png
-│   └── phase3_asymmetry_heatmap.png
-│
-├── results/
-│   ├── ablation_results.csv
-│   └── classification_metrics.csv
-│
-└── checkpoints/
-    └── README.md
-```
-
-The `.ipynb` files can remain the primary executable research record. The `src/` scripts are optional refactored versions; only include them once they have been checked against the notebooks.
-
-Large model checkpoints and datasets should not be committed without checking their licences, redistribution permissions, and repository size. The `checkpoints/README.md` can explain how authorised users can obtain the weights.
-
----
 
 ## Installation
 
@@ -438,83 +390,6 @@ pip install albumentations scikit-learn
 
 For GPU training, install a PyTorch build compatible with the CUDA version and GPU environment. Consult the official [PyTorch installation selector](https://pytorch.org/get-started/locally/).
 
-A `requirements.txt` should be generated from the tested environment so that the exact package versions used for the experiments are recorded.
-
----
-
-## Running the experiments
-
-### 1. Phase 1: encoder pretraining
-
-Place the authorised INAOE thermal CSV dataset in the expected directory and update the dataset path in the Phase 1 notebook.
-
-```text
-INAOE_Dataset/
-└── ...
-```
-
-Run the Phase 1 training notebook. The best encoder weights are saved as:
-
-```text
-best_inaoe_encoder_v2.pth
-```
-
-### 2. Dataset preparation
-
-Place the authorised STANDUP database in the expected folder structure. Update:
-
-```python
-ROOT_DIR = "./STANDUP_Database"
-OUTPUT_DIR = "./STANDUP_Ready_Phase2"
-```
-
-Run the preprocessing script to generate the left/right foot crops.
-
-### 3. Phase 2: Siamese training
-
-Ensure that the Phase 1 encoder checkpoint is available at the configured path. Set the experiment mode:
-
-```python
-EXPERIMENT_MODE = "R2"  # Change to "R0" for the R0 experiment
-```
-
-Run the Phase 2 notebook. The best checkpoint is saved with an experiment-specific filename.
-
-### 4. Ablation study
-
-Open `ablation_study.ipynb`, verify the dataset and pretrained-weight paths, and run the four configurations. Record the actual printed results in the ablation table.
-
-### 5. Phase 3: heatmap generation
-
-Set the target sample, side, and model checkpoint in the Phase 3 code:
-
-```python
-TARGET_ID = "YOUR_SAMPLE_ID"
-TARGET_SIDE = "R"  # "L" or "R"
-
-MODEL_PATH = "siamese_r2_best_metrics.pth"
-```
-
-Ensure the matching thermal pair and corresponding RGB image are available. Run the visualisation code to generate the final output image.
-
----
-
-## Reproducibility and limitations
-
-The following points should be considered when reproducing or extending the experiments:
-
-- **RGB-to-thermal registration:** Healthy RGB polygon coordinates are applied to thermal images. Registration must be verified.
-- **Contour assumption:** Preprocessing selects the two largest external contours, assuming these correspond to the two feet.
-- **Image-side naming:** `_L` and `_R` indicate image position in the supplied preprocessing code, not independently verified anatomical laterality.
-- **Participant-level separation:** The supplied Phase 2 code uses an image-pair-level random 80/20 split. A participant-level split is preferable to prevent samples from the same participant appearing in both training and validation sets.
-- **Augmentation:** The left and right images are transformed through separate calls to the augmentation pipeline. This can produce different random transformations for the two feet.
-- **Ablation validation transform:** The ablation notebook changes `val_dataset.dataset.mode` after creating the random splits. Since both subsets reference the same underlying dataset, this also changes the transform used by the training subset. Verify or correct this before interpreting the ablation results.
-- **Ablation reproducibility:** A fixed split seed is used, but model initialisation, data-loader shuffling, and other sources of randomness are not all explicitly seeded.
-- **Phase 3 interpretation:** The heatmap shows feature-space differences. It should not be interpreted as ground-truth ulcer localisation or a clinically validated explanation without additional validation.
-- **Clinical scope:** The experiments are research investigations and do not establish clinical diagnostic performance or readiness for clinical use.
-
----
-
 ## Dataset and data availability
 
 The datasets used in this research are not included in this repository.
@@ -532,14 +407,10 @@ If you use this implementation in your research, please cite the associated rese
 **Paper citation**
 
 ```text
-[Add the final, publisher-approved bibliographic citation here.]
+[Will be updated soon]
 ```
 
-**DOI:** [Add DOI after publication, if assigned.]
-
-A `CITATION.cff` file is provided so GitHub can display citation information for this repository. Update it with the final paper and software metadata when available.
-
----
+**DOI:** [WILL BE UPDATED]
 
 ## License
 
